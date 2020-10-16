@@ -67,11 +67,11 @@ sealed public class TransformInspector : Editor
         {
             var current_value                   = TransformUtils.GetInspectorRotation( m_transform );
             var is_pushed_reset_button          = GUILayout.Button( "R", RESET_BUTTON_WIDTH );
-            var contains_difference_rotation    = containsDifferenceRotationInSelectedObjects( transforms, current_value );
+            var contain_difference_rotations    = containDifferenceRotationsInSelectedObjects( transforms, current_value );
 
-            if ( contains_difference_rotation ) EditorGUI.showMixedValue = true;
+            if ( contain_difference_rotations ) EditorGUI.showMixedValue = true;
             var field_value = EditorGUILayout.Vector3Field( string.Empty, current_value, VALUE_FIELD_HEIGHT );
-            if ( contains_difference_rotation ) EditorGUI.showMixedValue = false;
+            if ( contain_difference_rotations ) EditorGUI.showMixedValue = false;
 
             new_value = is_pushed_reset_button ? Vector3.zero : field_value;
         }
@@ -86,7 +86,7 @@ sealed public class TransformInspector : Editor
     /// <summary>
     /// 選択したオブジェクトに異なる回転が含まれているか判別する値を取得
     /// </summary>
-    private bool containsDifferenceRotationInSelectedObjects( IList<Transform> transforms, Vector3 current_value )
+    private bool containDifferenceRotationsInSelectedObjects( IList<Transform> transforms, Vector3 current_value )
     {
         if ( transforms.Count <= 1 ) return false;
 
