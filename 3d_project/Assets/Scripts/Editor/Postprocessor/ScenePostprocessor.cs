@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 
 /// <summary>
-/// シーンの後処理をするエディタ拡張
+/// シーンの後処理を行うクラス( エディタ拡張 )
 /// </summary>
 public sealed class ScenePostprocessor : AssetPostprocessor 
 {
