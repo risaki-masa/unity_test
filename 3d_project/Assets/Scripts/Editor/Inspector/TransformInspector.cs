@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 /// <summary>
-/// TransformのInspectorビューを拡張するクラス
+/// TransformのInspectorを拡張するクラス
 /// </summary>
 [CanEditMultipleObjects]
 [CustomEditor( typeof( Transform ) )]
