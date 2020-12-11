@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 
 /// <summary>
-/// シーンの種類を管理する列挙型のスクリプトを作成するクラス
+/// シーンの種類を管理するスクリプトを作成するクラス
 /// </summary>
 public static class SceneTypeScriptCreator
 {

@@ -2,16 +2,16 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using UnityEditor;
 using System.Text.RegularExpressions;
+using UnityEditor;
 
 /// <summary>
-/// シーン名を管理するクラスのスクリプトを作成するクラス
+/// シーン名を管理するスクリプトを作成するクラス
 /// </summary>
 public static class SceneNameScriptCreator
 {
-private const string MENU_ITEM_NAME     = "Tools/Create/Scene Name";
-private const string SCRIPT_FILE_PATH   = "Assets/Scripts/Constants/SceneName.cs";
+    private const string MENU_ITEM_NAME     = "Tools/Create/Scene Name";
+    private const string SCRIPT_FILE_PATH   = "Assets/Scripts/Constants/SceneName.cs";
 
     /// <summary>
     /// シーンリストを変更した時の処理
@@ -72,7 +72,7 @@ private const string SCRIPT_FILE_PATH   = "Assets/Scripts/Constants/SceneName.cs
             .AppendLine( "/// <summary>" )
             .AppendLine( "/// シーンの名前を管理するクラス" )
             .AppendLine( "/// <summary>" )
-            .AppendLine( "public static class SceneNames" )
+            .AppendLine( "public static class SceneName" )
             .AppendLine( "{" )
             .Append( contents )
             .AppendLine( "}" )
