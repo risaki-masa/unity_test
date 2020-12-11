@@ -19,6 +19,17 @@ public sealed class ScenePostprocessor : AssetPostprocessor
         string[] asset_paths_after_moving, 
         string[] asset_paths_before_moving 
     ) {
+        UpdateScenesInBuild( imported_asset_paths, deleted_asset_paths, asset_paths_after_moving );
+    }
+
+    /// <summary>
+    /// 「Scenes In Build」を更新
+    /// </summary>
+    private static void UpdateScenesInBuild(
+        string[] imported_asset_paths, 
+        string[] deleted_asset_paths, 
+        string[] asset_paths_after_moving
+    ) {
         var scene_list = EditorBuildSettings.scenes.ToList();
 
         AddScenes   ( scene_list, imported_asset_paths  , asset_paths_after_moving );
