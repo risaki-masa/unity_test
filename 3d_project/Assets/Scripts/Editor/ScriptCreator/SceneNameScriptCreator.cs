@@ -8,10 +8,10 @@ using System.Text.RegularExpressions;
 /// <summary>
 /// シーン名を管理するクラスのスクリプトを作成するクラス
 /// </summary>
-public static class SceneNamesScriptCreator
+public static class SceneNameScriptCreator
 {
 private const string MENU_ITEM_NAME     = "Tools/Create/Scene Name";
-private const string SCRIPT_FILE_PATH   = "Assets/Scripts/Constants/SceneNames.cs";
+private const string SCRIPT_FILE_PATH   = "Assets/Scripts/Constants/SceneName.cs";
 
     /// <summary>
     /// シーンリストを変更した時の処理
@@ -34,6 +34,17 @@ private const string SCRIPT_FILE_PATH   = "Assets/Scripts/Constants/SceneNames.c
     /// 作成できるか判別する値を取得
     /// </summary>
     private static bool CanCreate() => !EditorApplication.isPlaying && !EditorApplication.isCompiling;
+
+    /// <summary>
+    /// ディレクトリが存在しない場合、作成
+    /// </summary>
+    private static void CreateDirectoryIfNotExists() 
+    {
+        var directory_path = Path.GetDirectoryName( SCRIPT_FILE_PATH );
+        if( Directory.Exists( directory_path ) ) return;
+        
+        Directory.CreateDirectory( directory_path );
+    }
 
     /// <summary>
     /// スクリプトの文字列を作成
@@ -76,16 +87,5 @@ private const string SCRIPT_FILE_PATH   = "Assets/Scripts/Constants/SceneNames.c
     private static string ToSnakeCaseFromUpperCamelCase( string value ) 
     {
         return Regex.Replace( value, "([a-z])([A-Z])", "$1_$2" ).ToUpper();
-    }
-
-    /// <summary>
-    /// ディレクトリが存在しない場合、作成
-    /// </summary>
-    private static void CreateDirectoryIfNotExists() 
-    {
-        var directory_path = Path.GetDirectoryName( SCRIPT_FILE_PATH );
-        if( Directory.Exists( directory_path ) ) return;
-        
-        Directory.CreateDirectory( directory_path );
     }
 }

@@ -16,7 +16,7 @@ public static class SceneTypeScriptCreator
     /// <summary>
     /// シーンリストを変更した時の処理
     /// </summary>
-    // [MenuItem( MENU_ITEM_NAME )]
+    [MenuItem( MENU_ITEM_NAME )]
     private static void Create() 
     {
         if ( !CanCreate() ) return;
