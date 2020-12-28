@@ -1,34 +1,25 @@
 ﻿using System.Collections;
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class Test : MonoBehaviour
 {
-    // public SceneType m_scene_type = SceneType.SCENE1;
+    [SerializeField]
+    private Fade m_fade = null;
 
     void Start()
     {
-        SceneManager.LoadScene( (int)SceneType.STAGE_SELECT );
-        // StartCoroutine( ChangeScene() );
+        Action on_completed = () => 
+        {
+            StartCoroutine( Wait3SecondsAndFadeOut() );
+        };
+
+        m_fade.FadeIn( 2.0f, on_completed );
     }
 
-    IEnumerator ChangeScene() 
+    IEnumerator Wait3SecondsAndFadeOut() 
     {
-        var operation = SceneManager.LoadSceneAsync( "Scene3" );
-        operation.completed += ( self ) => Debug.Log( "Loaded." );
-
-        operation.allowSceneActivation = false;
-        yield return new WaitForSeconds(5.0f);
-        operation.allowSceneActivation = true;
-
-        while ( !operation.isDone )
-        { 
-            yield return null;
-
-            Debug.Log( "Now Loading." );
-            Debug.Log( operation.isDone );
-            Debug.Log( operation.progress );
-        }
+        yield return new WaitForSeconds( 3.0f );
+        m_fade.FadeOut( 2.0f );
     }
 }
