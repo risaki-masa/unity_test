@@ -3,6 +3,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// フェードを管理するクラス
+/// </summary>
 public sealed class Fade : MonoBehaviour
 {
     [SerializeField]
@@ -19,24 +22,24 @@ public sealed class Fade : MonoBehaviour
     /// <summary>
     /// フェードインする
     /// </summary>
-    public void FadeIn( float time, Action on_completed = null ) 
+    public void FadeIn( float duration, Action on_completed = null ) 
     {
-        StartCoroutine( ChangeAlphaValueOverTime( time, on_completed, true ) );
+        StartCoroutine( ChangeAlphaValueFrom0To1OverTime( duration, on_completed, true ) );
     }
 
     /// <summary>
     /// フェードアウトする
     /// </summary>
-    public void FadeOut( float time, Action on_completed = null ) 
+    public void FadeOut( float duration, Action on_completed = null ) 
     {
-        StartCoroutine( ChangeAlphaValueOverTime( time, on_completed ) );
+        StartCoroutine( ChangeAlphaValueFrom0To1OverTime( duration, on_completed ) );
     }
 
     /// <summary>
-    /// 時間経過でアルファ値を変更
+    /// 時間経過でアルファ値を「0」から「1」に変更
     /// </summary>
-    private IEnumerator ChangeAlphaValueOverTime( 
-        float   max_time, 
+    private IEnumerator ChangeAlphaValueFrom0To1OverTime( 
+        float   duration, 
         Action  on_completed, 
         bool    is_reversing = false 
     ) {
@@ -45,9 +48,9 @@ public sealed class Fade : MonoBehaviour
         var elapsed_time    = 0.0f;
         var color           = m_image.color;
 
-        while ( elapsed_time < max_time )
+        while ( elapsed_time < duration )
         {
-            var elapsed_rate    = Mathf.Min( elapsed_time / max_time, 1.0f );
+            var elapsed_rate    = Mathf.Min( elapsed_time / duration, 1.0f );
             color.a             = is_reversing ? 1.0f - elapsed_rate : elapsed_rate;
             m_image.color       = color;
             
