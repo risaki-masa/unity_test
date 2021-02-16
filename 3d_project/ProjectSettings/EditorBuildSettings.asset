@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Build/StageSelect.unity
     guid: 70eab02baad3d9342b5fd6f795b1c008
   - enabled: 1
-    path: Assets/Scenes/Build/Game.unity
+    path: Assets/Scenes/Build/Fade.unity
     guid: c0fd23c9413aa114491321f8184c6c66
   - enabled: 1
-    path: Assets/Scenes/Build/Result.unity
+    path: Assets/Scenes/Build/BackgroundScroll.unity
     guid: 88464c520952fd147b28bb617b6087e3
   - enabled: 1
     path: Assets/Scenes/Build/Settings.unity
