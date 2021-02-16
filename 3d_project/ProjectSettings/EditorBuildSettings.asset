@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Build/Fade.unity
     guid: c0fd23c9413aa114491321f8184c6c66
   - enabled: 1
-    path: Assets/Scenes/Build/BackgroundScroll.unity
+    path: Assets/Scenes/Build/ScrollTest.unity
     guid: 88464c520952fd147b28bb617b6087e3
   - enabled: 1
     path: Assets/Scenes/Build/Settings.unity
