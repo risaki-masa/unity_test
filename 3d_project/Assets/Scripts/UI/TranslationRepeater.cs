@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// 移動の繰り返しを行うクラス
+/// 平行移動を繰り返すクラス
 /// </summary>
-public sealed class MovementRepeater : MonoBehaviour
+public sealed class TranslationRepeater : MonoBehaviour
 {
     [SerializeField]
     private float start_position    = 0.0f;
