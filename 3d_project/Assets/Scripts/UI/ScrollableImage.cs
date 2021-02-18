@@ -4,7 +4,7 @@ using UnityEngine.UI;
 /// <summary>
 /// スクロールできる画像を管理するクラス
 /// </summary>
-public class ScrollableImage : MonoBehaviour
+public sealed class ScrollableImage : MonoBehaviour
 {
     [SerializeField]
     private RawImage m_image = null;
